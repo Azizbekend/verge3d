@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="28"
+   height="28"
+   viewBox="0 0 7.4083332 7.4083335"
+   version="1.1"
+   id="svg23899"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="share_icon_telegram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs23893">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3259"
+       id="linearGradient3243"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-331.91117,190.58532)"
+       x1="333.53189"
+       y1="105.25716"
+       x2="338.53149"
+       y2="99.454987" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3259">
+      <stop
+         style="stop-color:#1096d8;stop-opacity:1"
+         offset="0"
+         id="stop3255" />
+      <stop
+         style="stop-color:#42b2eb;stop-opacity:1"
+         offset="1"
+         id="stop3257" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.536621"
+     inkscape:cx="-21.030645"
+     inkscape:cy="16.851053"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0" />
+  <metadata
+     id="metadata23896">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-289.59165)">
+    <path
+       inkscape:connector-curvature="0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.64731169px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';letter-spacing:0px;word-spacing:0px;display:inline;fill:url(#linearGradient3243);fill-opacity:1;stroke:none;stroke-width:0.19118281"
+       d="m 3.7041767,289.59165 c -2.04625,0 -3.70418,1.65792 -3.70418,3.70417 0,2.04625 1.65793,3.70416 3.70418,3.70416 2.04625,0 3.70416,-1.65791 3.70416,-3.70416 0,-2.04625 -1.65791,-3.70417 -3.70416,-3.70417 z"
+       id="path3237" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.0149362"
+       d="m 5.4210702,292.11124 c -0.05574,0.58572 -0.296946,2.00709 -0.419706,2.66312 -0.05192,0.27757 -0.154171,0.37065 -0.253138,0.37975 -0.215081,0.0198 -0.378453,-0.14215 -0.586797,-0.27873 -0.326012,-0.2137 -0.510189,-0.34674 -0.826657,-0.55527 -0.365711,-0.241 -0.12863,-0.37341 0.07979,-0.58998 0.05455,-0.0566 1.002321,-0.91873 1.020662,-0.99693 0.0023,-0.01 0.0045,-0.0463 -0.01723,-0.0655 -0.02172,-0.0191 -0.05362,-0.0127 -0.0767,-0.007 q -0.04903,0.0111 -1.562441,1.03272 -0.221727,0.15225 -0.401693,0.14837 c -0.13226,-0.003 -0.386667,-0.0748 -0.575804,-0.13626 -0.231973,-0.0754 -0.416345,-0.11527 -0.400289,-0.24333 q 0.01255,-0.10007 0.275573,-0.20462 1.619765,-0.7057 2.160185,-0.93052 c 1.028684,-0.42788 1.242435,-0.5022 1.381759,-0.50468 0.03065,-5.1e-4 0.09916,0.007 0.143537,0.043 a 0.1561127,0.1561127 0 0 1 0.05272,0.10032 0.65368086,0.65368086 0 0 1 0.0062,0.14591 z"
+       id="path918" />
+  </g>
+</svg>

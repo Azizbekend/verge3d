@@ -1,0 +1,32 @@
+<template
+    color="#d4af37"
+    inline="true"
+    output="Dictionary"
+
+    tooltip="Compose order item with SKU (stock keeping unit, aka product ID) and quantity. The SKU values should be added to Verge3D->Products page in WordPress admin interface."
+>
+    <value name="SKU" type="String">
+        <label>sku</label>
+    </value>
+
+    <value name="QUANTITY" type="Number">
+        <label>qty</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('ECommerce.html#order_item'));
+}
+
+function code(block) {
+    const sku = Blockly.JavaScript.valueToCode(block, 'SKU',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY',
+            Blockly.JavaScript.ORDER_NONE) || '1';
+
+    const val = `({'sku': ${sku}, 'quantity': ${quantity}})`;
+    return [val, Blockly.JavaScript.ORDER_ATOMIC];
+}
+</script>

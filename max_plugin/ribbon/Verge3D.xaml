@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prese_wind:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:context="clr-namespace:WPFCustomControls.ContextQueries;assembly=WPFCustomControls" xmlns:ads="clr-namespace:Autodesk.Windows;assembly=AdWindows" xmlns:wpfcust="clr-namespace:WPFCustomControls;assembly=WPFCustomControls" xmlns:prese_wind="clr-namespace:System.Windows;assembly=PresentationFramework">
+  <wpfcust:MaxRibbonTab
+    IsActive="true"
+    Name="Verge3D"
+    Title="    Verge3D    "
+    UID="0f452adf-01c6-4416-bc1d-3d3e48a1392d"
+    x:Key="Verge3D">
+    <wpfcust:MaxModelingRibbonPanel
+      CollapsedPanelImage="Icons/MissingImage_32.png"
+      FloatingGroup="0"
+      FloatingOrder="0"
+      UID="d9b003ac-4e73-4265-9e6b-5ffacd34e7ae">
+      <wpfcust:MaxRibbonPanelSource
+        Title="Tools"
+        UID="cff2997c-59e3-4c73-b5d2-c4e436e2686b">
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="d2fa5e8a-7fbd-42cd-b8d1-10f0d6c7b12e" />
+        <wpfcust:MaxRibbonToggleButton
+          CommandHandler="{wpfcust:ActionItem MacroName=sneakPeek, MacroCategory=Verge3D}"
+          Description="Export to temporary location and preview the scene in Verge3D"
+          Id="sneakPeek.Verge3D"
+          IsCheckable="true"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/SneakPeek.png"
+          MinWidth="0"
+          Orientation="Vertical"
+          OriginalImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/SneakPeek.png"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Sneak Peek"
+          UID="0ad895fc-08de-4a8e-a268-a621a3bca71e" />
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="7658d5bd-2e42-42d4-849c-b50d792a95c8" />
+        <wpfcust:MaxRibbonToggleButton
+          CommandHandler="{wpfcust:ActionItem MacroName=exportGLTF, MacroCategory=Verge3D}"
+          Description="Export the scene to glTF 2.0"
+          Id="exportGLTF.Verge3D"
+          IsCheckable="true"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ExportGLTF.png"
+          MinWidth="0"
+          Orientation="Vertical"
+          OriginalImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ExportGLTF.png"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Export glTF"
+          UID="bb2ca10d-a34e-4460-a45e-7fb5c8fc2ecb" />
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="d030068d-74e7-4e8a-a396-fed7aabd1207" />
+        <wpfcust:MaxRibbonToggleButton
+          CommandHandler="{wpfcust:ActionItem MacroName=runAppManager, MacroCategory=Verge3D}"
+          Description=" Open Verge3D App Manager"
+          Id="runAppManager.Verge3D"
+          IsCheckable="true"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/AppManager.png"
+          MinWidth="0"
+          Orientation="Vertical"
+          OriginalImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/AppManager.png"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="App Manager"
+          UID="8e384b79-bf66-4e58-bc9e-6a0e7a7ba945" />
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="bf43c410-9a33-49d6-8b1d-139711ebf6be" />
+      </wpfcust:MaxRibbonPanelSource>
+    </wpfcust:MaxModelingRibbonPanel>
+    <wpfcust:MaxModelingRibbonPanel
+      CollapsedPanelImage="Icons/MissingImage_32.png"
+      FloatingGroup="0"
+      FloatingOrder="0"
+      UID="c742c1c8-da04-41c9-8c6e-6be68017373a">
+      <wpfcust:MaxRibbonPanelSource
+        Title="Objects"
+        UID="9ef6b764-67ea-4bfe-9d7f-4226f5fe8b22">
+        <wpfcust:MaxscriptRibbonButton
+          Description="Create a spherical/cubic reflection probe object"
+          Image="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ReflectionCubemap.png"
+          IsCheckable="false"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ReflectionCubemap.png"
+          MaxscriptCommand="startObjectCreation V3DReflectionCubemap"
+          MinWidth="0"
+          Orientation="Vertical"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Reflection&#xA;Cubemap"
+          UID="7b1073a8-1ddd-4542-b4cb-4d9df4aa253b">
+          <wpfcust:MaxscriptRibbonButton.CommandHandler>
+            <wpfcust:MaxscriptCommand
+              Maxscript="startObjectCreation V3DReflectionCubemap" />
+          </wpfcust:MaxscriptRibbonButton.CommandHandler>
+        </wpfcust:MaxscriptRibbonButton>
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="5097606e-9607-4611-9a6e-ac132717dc7c" />
+        <wpfcust:MaxscriptRibbonButton
+          Description="Create a planar reflection probe object"
+          Image="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ReflectionPlane.png"
+          IsCheckable="false"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ReflectionPlane.png"
+          MaxscriptCommand="startObjectCreation V3DReflectionPlane"
+          MinWidth="0"
+          Orientation="Vertical"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Reflection&#xA;Plane"
+          UID="160618ab-9e7a-4655-aa2a-26a6877786db">
+          <wpfcust:MaxscriptRibbonButton.CommandHandler>
+            <wpfcust:MaxscriptCommand
+              Maxscript="startObjectCreation V3DReflectionPlane" />
+          </wpfcust:MaxscriptRibbonButton.CommandHandler>
+        </wpfcust:MaxscriptRibbonButton>
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="64f099b6-1f51-4d19-bf76-76f068abe41d" />
+        <wpfcust:MaxscriptRibbonButton
+          Description="Create a clipping plane object"
+          Image="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ClippingPlane.png"
+          IsCheckable="false"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ClippingPlane.png"
+          MaxscriptCommand="startObjectCreation V3DClippingPlane"
+          MinWidth="0"
+          Orientation="Vertical"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Clipping&#xA;Plane"
+          UID="a3fd5a70-91b8-4c9d-9a94-4c5fc24b9ec5">
+          <wpfcust:MaxscriptRibbonButton.CommandHandler>
+            <wpfcust:MaxscriptCommand
+              Maxscript="startObjectCreation V3DClippingPlane" />
+          </wpfcust:MaxscriptRibbonButton.CommandHandler>
+        </wpfcust:MaxscriptRibbonButton>
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="3bf26c92-e346-4bec-ac88-56a44f0f0c56" />
+      </wpfcust:MaxRibbonPanelSource>
+    </wpfcust:MaxModelingRibbonPanel>
+    <wpfcust:MaxModelingRibbonPanel
+      CollapsedPanelImage="Icons/MissingImage_32.png"
+      FloatingGroup="0"
+      FloatingOrder="0"
+      UID="d097c752-7294-422c-83c0-e373a001bbf7">
+      <wpfcust:MaxRibbonPanelSource
+        Title="Settings"
+        UID="0e8fd6fd-f347-457c-a34e-dab86879920a">
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="c0b29b95-ef39-4547-a617-eee748db09a8" />
+        <wpfcust:MaxRibbonToggleButton
+          CommandHandler="{wpfcust:ActionItem MacroName=showExportSettings, MacroCategory=Verge3D}"
+          Description="Open Verge3D Export Settings dialog"
+          Id="showExportSettings.Verge3D"
+          IsCheckable="true"
+          IsToolTipEnabled="true"
+          LargeImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ExportSettings.png"
+          MinWidth="0"
+          Orientation="Vertical"
+          OriginalImage="../../../en-US/UI/Ribbon/Extensions/ExtensionIcons/ExportSettings.png"
+          ResizeStyle="HideText"
+          ShowText="true"
+          Size="Large"
+          Text="Export&#xA;Settings"
+          UID="371db695-ed33-4b89-aed2-40dad3da5995" />
+        <ads:RibbonSeparator
+          AllowInToolBar="false"
+          Image="Icons/MissingImage_16.png"
+          IsToolTipEnabled="true"
+          LargeImage="Icons/MissingImage_32.png"
+          MinWidth="0"
+          ResizeStyle="NoResize"
+          SeparatorStyle="Spacer"
+          ShowText="false"
+          UID="314ab951-9c39-4c7c-819e-bba6495849ed" />
+      </wpfcust:MaxRibbonPanelSource>
+    </wpfcust:MaxModelingRibbonPanel>
+  </wpfcust:MaxRibbonTab>
+</prese_wind:ResourceDictionary>

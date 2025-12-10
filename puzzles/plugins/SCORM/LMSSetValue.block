@@ -1,0 +1,40 @@
+<template
+    color="#500000"
+    inline="true"
+    prev="true"
+    next="true"
+
+    tooltip='Saves a value to the LMS.'
+>
+    <dummy>
+        <label>lms set value</label>
+    </dummy>
+
+    <value name="ELEMENT" type="String">
+    </value>
+
+    <value name="VALUE" type="String Number">
+        <label>to</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_set_value'));
+}
+
+function code(block) {
+    var element = Blockly.JavaScript.valueToCode(block, 'ELEMENT',
+        Blockly.JavaScript.ORDER_NONE) || '\'\'';
+    var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+        Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    var fun = Plug.provide('LMSSetValue', function(element, value) {
+        // LMSSetValue puzzle
+	if (scormAPI !== null)
+            scormAPI.LMSSetValue(element, value);
+    });
+
+    return `${fun}(${element}, ${value});`;
+}
+</script>

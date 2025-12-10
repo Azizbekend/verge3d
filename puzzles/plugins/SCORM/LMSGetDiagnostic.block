@@ -1,0 +1,32 @@
+<template
+    color="#500000"
+    inline="true"
+    output="String"
+
+    tooltip="Returns detailed information about the last error that occurred."
+>
+    <value name="ERROR_CODE" type="String">
+        <label>lms get diagnostic</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_get_diagnostic'));
+}
+
+function code(block) {
+    const errorCode = Blockly.JavaScript.valueToCode(block, 'ERROR_CODE',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const fun = Plug.provide('LMSGetDiagnostic', function(errorCode) {
+        // LMSGetDiagnostic puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSGetDiagnostic(errorCode);
+        else
+            return '';
+    });
+
+    return [`${fun}(${errorCode})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+}
+</script>

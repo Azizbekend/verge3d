@@ -1,0 +1,40 @@
+<template
+    color="#500000"
+    inline="true"
+    prev="true"
+    next="true"
+
+    tooltip='Add item to the SCORM pack.'
+>
+    <dummy>
+        <label>pack add item with title</label>
+        <text name="TITLE">Course Item #1</text>
+    </dummy>
+
+    <dummy>
+        <label>ID</label>
+        <text name="ID">item_1</text>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#pack_add_item'));
+}
+
+function code(block) {
+    function scormEncodeXML(s) {
+        return s.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&apos;');
+    }
+
+    var data = {
+        'title': scormEncodeXML(block.getFieldValue('TITLE')),
+        'id': encodeURIComponent(block.getFieldValue('ID'))
+    }
+    return `// __V3D_SCORM_ITEM__${JSON.stringify(data)}\n`;
+}
+</script>

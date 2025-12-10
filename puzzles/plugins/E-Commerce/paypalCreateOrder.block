@@ -1,0 +1,212 @@
+<template
+    color="#d4af37"
+    inline="false"
+    prev="true"
+    next="true"
+
+    tooltip='Create PayPal order with given client ID.'
+>
+    <dummy>
+        <label>paypal create order</label>
+    </dummy>
+
+    <value name="CLIENT_ID" align="right" type="String">
+        <label>client ID</label>
+    </value>
+
+    <value name="TITLE" align="right" type="String">
+        <label>title</label>
+    </value>
+
+    <value name="PRICE" align="right" type="Number String">
+        <label>item price</label>
+    </value>
+
+    <dummy align="right">
+        <dropdown name="CURRENCY">
+            <option name="AUD">Australian dollar</option>
+            <option name="BRL">Brazilian real</option>
+            <option name="CAD">Canadian dollar</option>
+            <option name="CZK">Czech koruna</option>
+            <option name="DKK">Danish krone</option>
+            <option name="EUR">Euro</option>
+            <option name="HKD">Hong Kong dollar</option>
+            <option name="HUF">Hungarian forint</option>
+            <option name="ILS">Israeli new shekel</option>
+            <option name="JPY">Japanese yen</option>
+            <option name="MYR">Malaysian ringgit</option>
+            <option name="MXN">Mexican peso</option>
+            <option name="TWD">New Taiwan dollar</option>
+            <option name="NZD">New Zealand dollar</option>
+            <option name="NOK">Norwegian krone</option>
+            <option name="PHP">Philippine peso</option>
+            <option name="PLN">Polish złoty</option>
+            <option name="GBP">Pound sterling</option>
+            <option name="RUB">Russian ruble</option>
+            <option name="SGD">Singapore dollar</option>
+            <option name="SEK">Swedish krona</option>
+            <option name="CHF">Swiss franc</option>
+            <option name="THB">Thai baht</option>
+            <option name="USD" default="true">United States dollar</option>
+        </dropdown>
+    </dummy>
+
+    <value name="QUANTITY" align="right" type="Number">
+        <label>quantity</label>
+    </value>
+
+    <statement name="ON_SUCCESS_DO">
+        <label>on success do</label>
+    </statement>
+
+    <statement name="ON_ERROR_DO">
+        <label>on error do</label>
+    </statement>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('ECommerce.html#paypal_create_order'));
+}
+
+function code(block) {
+    const clientID = Blockly.JavaScript.valueToCode(block, 'CLIENT_ID',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const title = Blockly.JavaScript.valueToCode(block, 'TITLE',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const price = Blockly.JavaScript.valueToCode(block, 'PRICE',
+            Blockly.JavaScript.ORDER_NONE) || '0';
+
+    const currency = block.getFieldValue('CURRENCY');
+
+    const quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY',
+            Blockly.JavaScript.ORDER_NONE) || '1';
+
+    var onSuccessDo = Blockly.JavaScript.statementToCode(block, 'ON_SUCCESS_DO');
+    var onErrorDo = Blockly.JavaScript.statementToCode(block, 'ON_ERROR_DO');
+
+    const fun = Plug.provide('paypalCreateOrder', function(clientID, title, price, currency, quantity, successCb, errorCb) {
+
+        if (appInstance && appInstance.controls) {
+            appInstance.controls.forceMouseUp();
+        }
+
+        const paypalContBg = document.createElement('div');
+        paypalContBg.id = 'v3d-paypal-cont-bg';
+        paypalContBg.style = `
+            display: none;
+            position: fixed;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.4);
+        `;
+        appInstance.container.appendChild(paypalContBg);
+
+        const paypalCont = document.createElement('div');
+        paypalCont.id = 'v3d-paypal-cont';
+        paypalCont.style = `
+            background-color: #f2f2f2;
+            padding: 10px 10px 0 10px;
+            overflow: hidden;
+            filter: drop-shadow(0px 0px 6px #00000034);
+        `;
+        paypalContBg.appendChild(paypalCont);
+
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = `https://www.paypal.com/sdk/js?client-id=${clientID}&currency=${currency}&intent=capture&enable-funding=venmo`;
+        script.onload = function() {
+
+            paypalContBg.style.display = 'flex';
+
+            const totalPrice = price * quantity;
+
+            paypal.Buttons({
+                style: {
+                  color: 'gold',
+                  shape: 'rect',
+                  layout: 'vertical'
+                },
+
+                // set up the transaction
+                createOrder: (data, actions) => {
+                    // pass in any options from the v2 orders create call:
+                    // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                    const createOrderPayload = {
+                        purchase_units: [{
+                            amount: {
+                                currency_code: currency,
+                                value: totalPrice,
+                                breakdown: {
+                                    item_total: {
+                                        currency_code: currency,
+                                        value: totalPrice
+                                    }
+                                }
+                            },
+                            items: [{
+                                name: title,
+                                unit_amount: {
+                                    currency_code: currency,
+                                    value: price
+                                },
+                                quantity: quantity
+                            }]
+                        }],
+                    };
+
+                    return actions.order.create(createOrderPayload);
+                },
+
+                onApprove: (data, actions) => {
+                    const captureOrderHandler = (details) => {
+                    const payerName = details.payer.name.given_name;
+                        successCb();
+                        paypalContBg.remove();
+                    };
+
+                    return actions.order.capture().then(captureOrderHandler);
+                },
+
+                onCancel: (data) => {
+                    paypalContBg.remove();
+                },
+
+                onError: (error) => {
+                    console.error('failed to place PayPal order', error);
+                    errorCb(error);
+                    paypalContBg.remove();
+                }
+
+            })
+            .render('#v3d-paypal-cont')
+            .catch((error) => {
+                console.error('failed to render the PayPal Buttons', error);
+                errorCb(error);
+                paypalContBg.remove();
+            });
+
+        };
+        document.getElementsByTagName('head')[0].appendChild(script);
+    });
+
+    function wrapStatements(statementsDo, arg) {
+        arg = arg || '';
+        if (statementsDo.length)
+            return 'function(' + arg + ') {\n' + statementsDo + '}';
+        else
+            return 'function(' + arg + ') {}';
+    }
+
+    return `${fun}(${clientID}, ${title}, ${price}, '${currency}', ${quantity}, ${wrapStatements(onSuccessDo)}, ${wrapStatements(onErrorDo)});`;
+}
+</script>

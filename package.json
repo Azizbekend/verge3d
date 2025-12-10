@@ -1,0 +1,7 @@
+{
+  "name": "verge3d",
+  "version": "4.3.1",
+  "date": "2023-04-14",
+  "description": "Toolkit for creating 3D web interactives",
+  "type": "module"
+}

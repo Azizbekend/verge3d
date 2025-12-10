@@ -1,0 +1,116 @@
+<template
+    color="#d4af37"
+    inline="false"
+    prev="true"
+    next="true"
+
+    tooltip='Composes a hidden order form with order items and optional attachments and submits this
+    form to a specified URL according to the specification explicated in
+    the Wordpress Plugin section of the User Manual.'
+>
+    <dummy>
+        <label>place order +</label>
+    </dummy>
+
+    <value name="URL" align="right" type="String">
+        <label>submit to</label>
+    </value>
+
+    <value name="ITEMS" align="right" type="Dictionary Array">
+        <label>item(s)</label>
+    </value>
+
+    <value name="ATTACHMENTS" align="right" type="String Array">
+        <label>attachment(s)</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('ECommerce.html#place_order_adv'));
+}
+
+function code(block) {
+    const url = Blockly.JavaScript.valueToCode(block, 'URL',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const items = Blockly.JavaScript.valueToCode(block, 'ITEMS',
+            Blockly.JavaScript.ORDER_NONE) || '[]';
+
+    const attachments = Blockly.JavaScript.valueToCode(block, 'ATTACHMENTS',
+            Blockly.JavaScript.ORDER_NONE) || '[]';
+
+    const fun = Plug.provide('placeOrderAdv', function(url, items, attachments) {
+        // placeOrderAdv puzzle
+        function doPost(url, params) {
+            const form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', url);
+            form.setAttribute('target', 'v3d_view');
+
+            params.forEach(param => {
+                const key = param[0];
+                const value = param[1];
+                const hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', key);
+                hiddenField.setAttribute('value', value);
+                form.appendChild(hiddenField);
+            });
+
+            document.body.appendChild(form);
+            window.open('', 'v3d_view');
+            form.submit();
+        }
+
+        function base64EncodeUnicode(str) {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+                function toSolidBytes(match, p1) {
+                    return String.fromCharCode('0x' + p1);
+            }));
+        }
+
+        function prepareAttachment(att, orderParams) {
+            if (typeof att === 'string' && att.indexOf('data:') == 0)
+                orderParams.push(['v3d_attachments[]', att]);
+            else if (typeof att === 'string')
+                orderParams.push(['v3d_attachments[]', 'data:text/plain;base64,' + base64EncodeUnicode(att)]);
+        }
+
+        items = Array.isArray(items) ? items : [items];
+        items = items.filter(item => item);
+
+        const orderParams = [
+            ['v3d_items', JSON.stringify(items)]
+        ];
+
+        attachments = Array.isArray(attachments) ? attachments : [attachments];
+        attachments = attachments.filter(att => att);
+
+        let resolvePromises = false;
+
+        for (let i = 0; i < attachments.length; i++) {
+            if (attachments[i] instanceof Promise) {
+                resolvePromises = true;
+                break;
+            }
+        }
+
+        if (resolvePromises) {
+            Promise.all(attachments).then(attachmentsResolved => {
+                attachmentsResolved.forEach(att => {
+                    prepareAttachment(att, orderParams);
+                });
+                doPost(url, orderParams);
+            });
+        } else {
+            attachments.forEach(att => {
+                prepareAttachment(att, orderParams);
+            });
+            doPost(url, orderParams);
+        }
+    });
+
+    return `${fun}(${url}, ${items}, ${attachments});`;
+}
+</script>

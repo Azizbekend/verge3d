@@ -1,0 +1,39 @@
+<template
+    color="#500000"
+    inline="true"
+    output="String"
+
+    tooltip="Returns ID of the currently loaded item in the SCORM pack. Returns \'default\' string if no items assigned."
+>
+    <dummy>
+        <label>pack get item ID</label>
+    </dummy>
+
+    <dummy>
+        <label>in parent doc</label>
+        <checkbox name="PARENT">false</checkbox>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#pack_get_item_id'));
+}
+
+function code(block) {
+    var parentVal = block.getField('PARENT').getValue();
+    var isParent = parentVal === 'TRUE' ? true : false;
+
+    var fun = Plug.provide('getItemID', function(isParent) {
+	var targetWindow = isParent ? window.parent : window;
+
+        var params = v3d.AppUtils.getPageParams(targetWindow);
+	if (params['v3d_scorm_item_id'])
+            return params['v3d_scorm_item_id'];
+        else
+            return '';
+    });
+
+    return [`${fun}(${isParent})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+}
+</script>

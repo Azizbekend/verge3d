@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no" ?>
+
+<manifest identifier="${courseID}" version="1"
+       xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+       xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                           http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                           http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="verge3d_app_default_org">
+    <organization identifier="verge3d_app_default_org">
+      <title>${courseName}</title>
+      % if len(scoItems) == 0:
+        <item identifier="default" identifierref="verge3d_app_resource" parameters="?v3d_scorm_item_id=default">
+          <title>${defaultItemTitle}</title>
+        </item>
+      % else:
+        % for item in scoItems:
+          <item identifier="${item['id']}" identifierref="verge3d_app_resource" parameters="?v3d_scorm_item_id=${item['id']}">
+            <title>${item['title']}</title>
+          </item>
+        % endfor
+      % endif
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="verge3d_app_resource" type="webcontent" adlcp:scormtype="sco" href="${courseMainHTML}">
+      % for item in resourceItems:
+        <file href="${item}"/>
+      % endfor
+    </resource>
+  </resources>
+</manifest>

@@ -1,0 +1,27 @@
+<template
+    color="#500000"
+    prev="true"
+    next="true"
+
+    tooltip='Indicates to the LMS that all data should be persisted.'
+>
+    <dummy>
+        <label>lms commit</label>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_commit'));
+}
+
+function code(block) {
+    const fun = Plug.provide('LMSCommit', function() {
+        // LMSCommit puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSCommit('');
+    });
+
+    return `${fun}();`;
+}
+</script>

@@ -1,0 +1,27 @@
+<template
+    color="#500000"
+    prev="true"
+    next="true"
+
+    tooltip='Begins a communication session with the LMS.'
+>
+    <dummy>
+        <label>lms initialize</label>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_initialize'));
+}
+
+function code(block) {
+    const fun = Plug.provide('LMSInitialize', function() {
+        // LMSInitialize puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSInitialize('');
+    });
+
+    return `${fun}();`;
+}
+</script>

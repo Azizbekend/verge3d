@@ -1,0 +1,43 @@
+<template
+    color="#500000"
+    inline="true"
+    output="String"
+
+    tooltip="Selector for SCORM data model elements."
+>
+    <dummy>
+        <dropdown name="ELEMENT">
+            <option name="cmi.core.lesson_status">cmi.core.lesson_status</option>
+            <option name="cmi.core.student_id">cmi.core.student_id</option>
+            <option name="cmi.core.student_name">cmi.core.student_name</option>
+            <option name="cmi.core.lesson_location">cmi.core.lesson_location</option>
+            <option name="cmi.core.credit">cmi.core.credit</option>
+            <option name="cmi.core.entry">cmi.core.entry</option>
+            <option name="cmi.core.score_children">cmi.core.score_children</option>
+            <option name="cmi.core.score.raw">cmi.core.score.raw</option>
+            <option name="cmi.core.score.max">cmi.core.score.max</option>
+            <option name="cmi.core.score.min">cmi.core.score.min</option>
+            <option name="cmi.core.total_time">cmi.core.total_time</option>
+            <option name="cmi.core.lesson_mode">cmi.core.lesson_mode</option>
+            <option name="cmi.core.exit">cmi.core.exit</option>
+            <option name="cmi.core.session_time">cmi.core.session_time</option>
+            <option name="cmi.core._children">cmi.core._children</option>
+        </dropdown>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#data_model_elements'));
+}
+
+function code(block) {
+    var element = block.getFieldValue('ELEMENT');
+
+    var fun = Plug.provide('dataModelElements', function(element) {
+        return element;
+    });
+
+    return [`${fun}('${element}')`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+}
+</script>

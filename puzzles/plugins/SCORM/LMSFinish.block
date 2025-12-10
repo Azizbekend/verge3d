@@ -1,0 +1,27 @@
+<template
+    color="#500000"
+    prev="true"
+    next="true"
+
+    tooltip='Ends a communication session with the LMS.'
+>
+    <dummy>
+        <label>lms finish</label>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_finish'));
+}
+
+function code(block) {
+    const fun = Plug.provide('LMSFinish', function() {
+        // LMSFinish puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSFinish('');
+    });
+
+    return `${fun}();`;
+}
+</script>

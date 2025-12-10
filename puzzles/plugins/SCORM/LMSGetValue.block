@@ -1,0 +1,32 @@
+<template
+    color="#500000"
+    inline="true"
+    output="String"
+
+    tooltip="Retrieves a value from the LMS."
+>
+    <value name="ELEMENT" type="String">
+        <label>lms get value</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_get_value'));
+}
+
+function code(block) {
+    const element = Blockly.JavaScript.valueToCode(block, 'ELEMENT',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const fun = Plug.provide('LMSGetValue', function(element) {
+        // LMSGetValue puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSGetValue(element);
+        else
+            return '';
+    });
+
+    return [`${fun}(${element})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+}
+</script>

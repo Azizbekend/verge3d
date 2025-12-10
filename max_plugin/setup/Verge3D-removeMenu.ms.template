@@ -1,0 +1,4 @@
+format "V3D-INFO: Cleaning Up Verge3D Menu"
+oldVerge3DMenu = menuMan.findMenu "Verge3D"
+if oldVerge3DMenu != undefined then menuMan.unregisterMenu oldVerge3DMenu
+deleteFile(getThisScriptFilename())

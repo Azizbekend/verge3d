@@ -1,0 +1,99 @@
+<template
+    color="#d4af37"
+    inline="false"
+    prev="true"
+    next="true"
+
+    tooltip='Composes a hidden order form with the "title", "contents"
+    and "item price" fields and an optional screenshot and submits this
+    form to a specified URL according to the specification explicated in
+    the Wordpress Plugin section of the User Manual.'
+>
+    <dummy>
+        <label>place order</label>
+    </dummy>
+
+    <value name="URL" align="right" type="String">
+        <label>submit to</label>
+    </value>
+
+    <value name="CONTENT" align="right" type="String">
+        <label>content</label>
+    </value>
+
+    <value name="PRICE" align="right" type="Number String">
+        <label>item price</label>
+    </value>
+
+    <value name="QUANTITY" align="right" type="Number">
+        <label>quantity</label>
+    </value>
+
+    <dummy align="right">
+        <label>make screenshot</label>
+        <checkbox name="SCREEN">false</checkbox>
+    </dummy>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('ECommerce.html#place_order'));
+}
+
+function code(block) {
+    const url = Blockly.JavaScript.valueToCode(block, 'URL',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const content = Blockly.JavaScript.valueToCode(block, 'CONTENT',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const price = Blockly.JavaScript.valueToCode(block, 'PRICE',
+            Blockly.JavaScript.ORDER_NONE) || '0';
+
+    const quantity = Blockly.JavaScript.valueToCode(block, 'QUANTITY',
+            Blockly.JavaScript.ORDER_NONE) || '1';
+
+    const makeScreenshotField = block.getField('SCREEN');
+    let makeScreenshot = makeScreenshotField ? makeScreenshotField.getValue() : 'FALSE';
+    makeScreenshot = (makeScreenshot == 'TRUE') ? true : false;
+
+    const fun = Plug.provide('placeOrder', function(url, content, price, quantity, makeScreenshot) {
+        // placeOrder puzzle
+        function doPost(url, params) {
+            const form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', url);
+            form.setAttribute('target', 'v3d_view');
+
+            params.forEach(param => {
+                const key = param[0];
+                const value = param[1];
+                const hiddenField = document.createElement('input');
+                hiddenField.setAttribute('type', 'hidden');
+                hiddenField.setAttribute('name', key);
+                hiddenField.setAttribute('value', value);
+                form.appendChild(hiddenField);
+            });
+
+            document.body.appendChild(form);
+            window.open('', 'v3d_view');
+            form.submit();
+        }
+
+        const orderParams = [
+            ['v3d_items', JSON.stringify([{
+                'title': content,
+                'price': price,
+                'quantity': quantity,
+            }])]
+        ];
+
+        if (makeScreenshot)
+            orderParams.push(['v3d_attachments[]', appInstance.renderer.domElement.toDataURL('image/jpeg')]);
+
+        doPost(url, orderParams);
+    });
+
+    return `${fun}(${url}, ${content}, ${price}, ${quantity}, ${makeScreenshot});`;
+}
+</script>

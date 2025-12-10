@@ -1,0 +1,93 @@
+<category name="E-Learning/SCORM" color="#500000">
+    <block type="LMSInitialize" allow-init="true"></block>
+    <block type="LMSFinish" allow-init="true"></block>
+    <block type="LMSSetValue" allow-init="true">
+        <value name="ELEMENT">
+            <shadow type="dataModelElements">
+                <field name="ELEMENT">cmi.core.lesson_status</field>
+            </shadow>
+        </value>
+        <value name="VALUE">
+            <shadow type="text">
+                <field name="TEXT">passed</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="LMSGetValue" allow-init="true">
+        <value name="ELEMENT">
+            <shadow type="dataModelElements">
+                <field name="ELEMENT">cmi.core.lesson_status</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="LMSCommit" allow-init="true"></block>
+    <block type="LMSGetLastError" allow-init="true"></block>
+    <block type="LMSGetErrorString" allow-init="true">
+        <value name="ERROR_CODE">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+    </block>
+    <block type="LMSGetDiagnostic" allow-init="true">
+        <value name="ERROR_CODE">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+     </block>
+    <block type="dataModelElements" allow-init="true"></block>
+    <block type="packAddItem" allow-init="true"></block>
+    <block type="getItemID" allow-init="true"></block>
+</category>
+
+<script>
+function code() {
+    return `
+function findScormAPI(win) {
+    var findScormAPITries = 0;
+
+    while (win.API == null && win.parent != null && win.parent != win) {
+        findScormAPITries++;
+
+        if (findScormAPITries > 7) {
+            console.error('findScormAPI: Error finding API - too deeply nested.');
+            return null;
+        }
+
+        win = win.parent;
+    }
+
+    return (win.API || null);
+}
+
+function findScormAPIOpener(win) {
+    if (win.opener != null && typeof(win.opener) != 'undefined')
+        return findScormAPI(win.opener);
+    else
+        return null;
+}
+
+function getScormAPI() {
+    // start by looking for the API in the current window
+    var theAPI = findScormAPI(window);
+
+    // check for opener
+    if (theAPI == null)
+        theAPI = findScormAPIOpener(window);
+
+    // check for parent opener
+    if (theAPI == null && window.parent != null && window.parent != window)
+        theAPI = findScormAPIOpener(window.parent);
+
+    // if the API has not been found
+    if (theAPI == null)
+        console.error('getScormAPI: Unable to find an API adapter');
+
+    return theAPI;
+}
+
+var scormAPI = getScormAPI();
+`;
+}
+</script>

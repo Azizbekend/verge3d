@@ -1,0 +1,156 @@
+.v3d-container {
+    /* fix for the iOS iframe bug when adding an annotation causes iframe resizing */
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+.v3d-canvas {
+    /* fix for the iOS iframe 'growing' bug */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* make it below other elements that could be possibly added into the container */
+    z-index: -1;
+}
+
+.v3d-simple-preloader-background {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.v3d-simple-preloader-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -90px;
+    margin-left: -90px;
+    width: 180px;
+    height: 180px;
+}
+
+.v3d-simple-preloader-bar {
+    background: linear-gradient(90deg, #1458ae, #4388e0);
+    width: 0%;
+    height: 3px;
+    margin: 15px -1px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #2b70c7;
+}
+
+.v3d-simple-preloader-logo {
+    width: 110px;
+    height: 120px;
+    background-repeat: no-repeat;
+    margin: 20px auto;
+}
+
+.v3d-annotation {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: auto;
+    min-width: 14px;
+    height: 26px;
+    padding: 2px 8px;
+    border: 1px solid #fff;
+    border-radius: 18px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 26px;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.v3d-annotation-transparent {
+    opacity: 0.5;
+}
+
+.v3d-annotation-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 15px;
+    margin-top: 31px;
+    font-family: sans-serif;
+    user-select: none;
+    padding: 1em;
+    min-width: 200px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: .5em;
+    font-size: 12px;
+    line-height: 1.2;
+    transition: opacity .5s;
+    visibility: hidden;
+}
+
+.v3d-mobile-forward {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    bottom: 31px;
+    left: 50%;
+    margin-left: -31px;
+    background-image: url('data:image/svg+xml,%3C%3Fxml version="1.0" encoding="UTF-8" standalone="no"%3F%3E%3Csvg width="62" height="62" viewBox="0 0 16.404167 16.404167" version="1.1" id="svg2719" sodipodi:docname="move_forward.svg" inkscape:version="1.1.2 (b8e25be833, 2022-02-05)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" xmlns:cc="http://creativecommons.org/ns%23" xmlns:dc="http://purl.org/dc/elements/1.1/"%3E%3Csodipodi:namedview id="namedview7548" pagecolor="%23505050" bordercolor="%23eeeeee" borderopacity="1" inkscape:pageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" showgrid="false" inkscape:snap-global="false" inkscape:zoom="7.1451613" inkscape:cx="42.266366" inkscape:cy="15.814898" inkscape:window-width="1920" inkscape:window-height="1137" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg2719" /%3E%3Cdefs id="defs2713"%3E%3ClinearGradient gradientTransform="translate(-524.2581,-935.78503)" xlink:href="%23linearGradient2768" id="linearGradient2673" x1="501.88306" y1="942.95502" x2="508.08038" y2="935.61182" gradientUnits="userSpaceOnUse" /%3E%3ClinearGradient id="linearGradient2768"%3E%3Cstop style="stop-color:%23414141;stop-opacity:1" offset="0" id="stop2764" /%3E%3Cstop style="stop-color:%23767676;stop-opacity:1" offset="1" id="stop2766" /%3E%3C/linearGradient%3E%3ClinearGradient gradientTransform="translate(-521.96226,-941.8579)" xlink:href="%23linearGradient2648" id="linearGradient2665" x1="495.62714" y1="948.00964" x2="508.85629" y2="934.78046" gradientUnits="userSpaceOnUse" /%3E%3ClinearGradient id="linearGradient2648"%3E%3Cstop style="stop-color:%23ebebeb;stop-opacity:1" offset="0" id="stop2644" /%3E%3Cstop style="stop-color:%23ffffff;stop-opacity:1" offset="1" id="stop2646" /%3E%3C/linearGradient%3E%3Cfilter style="color-interpolation-filters:sRGB" id="filter2688" x="-0.12" width="1.24" y="-0.12" height="1.24"%3E%3CfeGaussianBlur stdDeviation="0.66145835" id="feGaussianBlur2690" /%3E%3C/filter%3E%3ClinearGradient inkscape:collect="always" xlink:href="%23linearGradient2768" id="linearGradient7749" x1="6.0107598" y1="11.942085" x2="11.430239" y2="4.0917845" gradientUnits="userSpaceOnUse" /%3E%3ClinearGradient inkscape:collect="always" xlink:href="%23linearGradient2648" id="linearGradient8251" x1="4.2536402" y1="13.238126" x2="12.150527" y2="2.9068334" gradientUnits="userSpaceOnUse" /%3E%3Cfilter inkscape:collect="always" style="color-interpolation-filters:sRGB" id="filter8772" x="-0.10840111" y="-0.10840111" width="1.2168022" height="1.2168022"%3E%3CfeGaussianBlur inkscape:collect="always" stdDeviation="0.59752352" id="feGaussianBlur8774" /%3E%3C/filter%3E%3C/defs%3E%3Cmetadata id="metadata2716"%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=""%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Ccircle style="fill:%23000000;stroke-width:0.230841;stroke-linecap:round;stroke-linejoin:round;fill-opacity:0.5;filter:url(%23filter8772)" id="circle8626" cx="8.2020836" cy="8.2020836" r="6.6145835" /%3E%3Ccircle style="fill:url(%23linearGradient8251);stroke-width:0.230841;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1" id="path7652" cx="8.2020836" cy="8.2020836" r="6.6145835" /%3E%3Cpath d="m 4.2333333,6.7138018 c 0,0.9875367 0.4960933,2.4804692 0.4960933,2.4804692 h 1.984375 c 0,-0.7441408 0.2480473,-1.1782225 0.496094,-1.612305 0.2480467,-0.4340817 0.4960942,-0.8681642 0.4960942,-1.6123037 0,-0.8743657 -0.2480475,-2.7285166 -1.4882817,-2.7285166 -1.240234,0 -1.9843749,1.9843749 -1.9843748,3.4726561 z m 1.4882816,4.4648442 c 0.5472533,0 0.9921867,-0.444934 0.9921867,-0.992188 V 9.6903643 h -1.984375 v 0.4960937 c 0,0.547254 0.4449341,0.992188 0.9921883,0.992188 z M 12.170834,8.6981768 c 0,-1.4882808 -0.744141,-3.4726553 -1.984376,-3.4726553 -1.240234,0 -1.4882807,1.8541503 -1.4882807,2.7285153 0,0.74414 0.2480467,1.1782226 0.4960933,1.6123041 0.2480467,0.4340821 0.4960934,0.8681641 0.4960934,1.6123051 h 1.984376 c 0,0 0.496094,-1.4929325 0.496094,-2.4804692 z m -1.488281,4.4648442 c 0.547253,0 0.992187,-0.444935 0.992187,-0.992188 V 11.674739 H 9.690364 v 0.496094 c 0,0.547253 0.444935,0.992188 0.992189,0.992188 z" id="path7734" style="stroke-width:0.0155029;fill-opacity:1;fill:url(%23linearGradient7749)" /%3E%3C/svg%3E');
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.v3d-webgl-error {
+    color: #015fb1;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -44px;
+    margin-left: -256px;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #015fb1;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 10px;
+    line-height: 30px;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 540px) {
+    .v3d-webgl-error {
+        top: 50%;
+        left: 10px;
+        right: 10px;
+        margin-top: -58px;
+        margin-left: 0px;
+    }
+}
+
+.v3d-webgl-error-link {
+    color: #015fb1;
+}
+
+.v3d-device-motion-permissions-dialog {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    background-color: #f00;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+}

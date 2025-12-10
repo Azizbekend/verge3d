@@ -1,0 +1,32 @@
+<template
+    color="#500000"
+    inline="true"
+    output="String"
+
+    tooltip="Returns a short string describing the specified error code."
+>
+    <value name="ERROR_CODE" type="String">
+        <label>lms get error string</label>
+    </value>
+</template>
+
+<script>
+function template(block) {
+    block.setHelpUrl(Plug.getPuzzlesDocUrl('SCORM.html#lms_get_error_string'));
+}
+
+function code(block) {
+    const errorCode = Blockly.JavaScript.valueToCode(block, 'ERROR_CODE',
+            Blockly.JavaScript.ORDER_NONE) || '\'\'';
+
+    const fun = Plug.provide('LMSGetErrorString', function(errorCode) {
+        // LMSGetErrorString puzzle
+	if (scormAPI !== null)
+            return scormAPI.LMSGetErrorString(errorCode);
+        else
+            return '';
+    });
+
+    return [`${fun}(${errorCode})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+}
+</script>

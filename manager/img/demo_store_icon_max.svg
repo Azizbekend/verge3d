@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="40"
+   height="30"
+   viewBox="0 0 10.583333 7.9375005"
+   version="1.1"
+   id="svg74200"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="demo_store_icon_max.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview74202"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="5.1241863"
+     inkscape:cx="7.1230822"
+     inkscape:cy="7.4158116"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs74197">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2179"
+       id="linearGradient27391"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0127223,0,0,1,-139.01425,-159.78821)"
+       x1="150.82217"
+       y1="165.62872"
+       x2="159.75621"
+       y2="165.62872" />
+    <linearGradient
+       id="linearGradient2179"
+       inkscape:collect="always">
+      <stop
+         id="stop2175"
+         offset="0"
+         style="stop-color:#00a5b2;stop-opacity:1;" />
+      <stop
+         id="stop2177"
+         offset="1"
+         style="stop-color:#51dce8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g74629"
+       transform="translate(-13.72457,-1.0914)">
+      <path
+         style="display:inline;fill:url(#linearGradient27391);fill-opacity:1;stroke:none;stroke-width:0.266261px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 24.307903,1.0914 H 13.72457 v 7.9375 h 8.214971 z"
+         id="path27389"
+         inkscape:export-filename="D:\repos\art\design\app_manager\maket\default\21-demo-store.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.46237px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.185214"
+         d="m 18.22654,3.20781 h 5.3e-4 0.35243 c 1.02541,0 1.53842,0.37324 1.53842,1.11931 0,0.31172 -0.117,0.55563 -0.35039,0.73277 0.26747,0.16864 0.4005,0.41482 0.4005,0.73846 0,0.39347 -0.12565,0.67824 -0.37775,0.85369 -0.25043,0.17374 -0.61695,0.26045 -1.10072,0.26045 h -0.54467 c -0.38155,0 -0.72236,-0.0938 -1.02216,-0.28112 -0.29978,-0.18907 -0.44958,-0.43526 -0.44958,-0.73846 0,-0.1022 0.0298,-0.17496 0.0894,-0.21755 0.0596,-0.0443 0.11792,-0.0656 0.17415,-0.0656 h 0.30128 c 0.15843,0 0.28228,0.0968 0.37259,0.29094 0.0903,0.19419 0.29837,0.29145 0.62372,0.29145 h 0.36537 c 0.20952,0 0.36282,-0.0303 0.45992,-0.0899 0.0971,-0.0596 0.14571,-0.16077 0.14571,-0.30385 0,-0.14309 -0.0487,-0.24424 -0.14571,-0.30386 -0.0971,-0.0596 -0.2504,-0.0894 -0.45992,-0.0894 h -0.45993 c -0.0664,0 -0.12335,-0.0227 -0.17105,-0.0687 -0.0477,-0.0477 -0.0713,-0.10565 -0.0713,-0.17208 V 4.95507 c 0,-0.063 0.0227,-0.11819 0.0687,-0.16588 0.046,-0.0494 0.1003,-0.0739 0.1633,-0.0739 h 0.3757 c 0.22654,0 0.3913,-0.0298 0.49351,-0.0894 0.10387,-0.0596 0.15554,-0.16129 0.15554,-0.30438 0,-0.14308 -0.0516,-0.24336 -0.15554,-0.30127 -0.10221,-0.0596 -0.26697,-0.0894 -0.49351,-0.0894 h -0.18862 c -0.32705,0 -0.54345,0.10468 -0.64907,0.31419 -0.0767,0.16011 -0.19238,0.2403 -0.34571,0.2403 h -0.30334 c -0.0818,0 -0.14571,-0.0298 -0.19172,-0.0894 -0.046,-0.0596 -0.0687,-0.12446 -0.0687,-0.19431 0,-0.19417 0.074,-0.36847 0.22223,-0.52348 0.14816,-0.1567 0.33252,-0.27408 0.55395,-0.35243 0.22146,-0.0784 0.45231,-0.11782 0.69247,-0.11782 z"
+         id="path27395"
+         inkscape:export-filename="D:\repos\art\design\app_manager\maket\default\21-demo-store.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+  </g>
+</svg>

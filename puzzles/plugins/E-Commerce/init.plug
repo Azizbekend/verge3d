@@ -1,0 +1,85 @@
+<category name="E-Commerce" color="#d4af37">
+    <label text="PayPal:"></label>
+    <block type="paypalCreateOrder">
+        <value name="CLIENT_ID">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+        <value name="TITLE">
+            <shadow type="text">
+                <field name="TEXT">T-shirt with custom printing</field>
+            </shadow>
+        </value>
+        <value name="PRICE">
+            <shadow type="math_number">
+                <field name="NUM">18.25</field>
+            </shadow>
+        </value>
+        <value name="QUANTITY">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <sep gap="40" allow-init="true"></sep>
+    <label text="WooCommerce:" allow-init="true"></label>
+    <block type="wooGetProductInfo" allow-init="true"></block>
+    <block type="wooProductInfo" allow-init="true"></block>
+    <block type="wooProductAttribute" allow-init="true">
+        <value name="NAME">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+    </block>
+    <sep gap="40" allow-init="true"></sep>
+    <label text="WordPress order form:"></label>
+    <block type="placeOrder">
+        <value name="URL">
+            <shadow type="text">
+                <field name="TEXT">https://sandbox.soft8soft.com/order-form/</field>
+            </shadow>
+        </value>
+        <value name="CONTENT">
+            <shadow type="text">
+                <field name="TEXT">Verge3D for Blender: Freelance License</field>
+            </shadow>
+        </value>
+        <value name="PRICE">
+            <shadow type="math_number">
+                <field name="NUM">299</field>
+            </shadow>
+        </value>
+        <value name="QUANTITY">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="placeOrderAdv">
+        <value name="URL">
+            <shadow type="text">
+                <field name="TEXT">https://sandbox.soft8soft.com/order-form/</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="orderItem" allow-init="true">
+        <value name="SKU">
+            <shadow type="text">
+                <field name="TEXT"></field>
+            </shadow>
+        </value>
+        <value name="QUANTITY">
+            <shadow type="math_number">
+                <field name="NUM">1</field>
+            </shadow>
+        </value>
+    </block>
+</category>
+
+<script>
+function code() {
+    return `_pGlob.wooProductInfo = {};`;
+}
+</script>
