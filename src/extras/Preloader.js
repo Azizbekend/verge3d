@@ -13,7 +13,6 @@ Object.assign(Preloader.prototype, {
 
 });
 
-
 /**
  * parameters = {
  *  container: <HTMLElement|string>

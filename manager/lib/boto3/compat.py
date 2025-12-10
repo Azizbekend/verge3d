@@ -18,7 +18,6 @@ import warnings
 
 from botocore.vendored import six
 from boto3.exceptions import PythonDeprecationWarning
-
 if six.PY3:
     # In python3, socket.error is OSError, which is too general
     # for what we want (i.e FileNotFoundError is a subclass of OSError).

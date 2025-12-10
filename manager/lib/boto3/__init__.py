@@ -69,7 +69,6 @@ def set_stream_logger(name='boto3', level=logging.DEBUG, format_string=None):
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
-
 def _get_default_session():
     """
     Get the default session, creating one if needed.

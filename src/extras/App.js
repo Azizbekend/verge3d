@@ -62,7 +62,6 @@ import {
     computeBoundsTree,
     disposeBoundsTree
 } from './core/mesh_bvh/index.js';
-
 import {
     LinearMipmapLinearFilter,
     ESMShadowMap,
